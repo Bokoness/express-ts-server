@@ -1,0 +1,53 @@
+@model = user
+@record = {{store.response.body._id}}
+
+# @name store
+POST {{url}}/{{model}} HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+  "email": "user@gmail.com",
+	"password": "321123",
+	"name": {
+		"firstName": "Ploni",
+		"lastName": "Almoni"
+	},
+	"address": {
+		"street": "closeapp",
+		"number": "5a",
+		"city": "Tapuach"
+	},
+	"proffesion": "Shu proffesion?",
+	"phone": "0534280822"
+}
+
+###
+# @name index
+# fetch all tag's tags
+GET {{url}}/{{model}}/
+###
+
+###
+# @name show
+## Show one tag
+GET {{url}}/{{model}}/{{record}} HTTP/1.1
+
+###
+# @name index
+## Fetch all tags
+GET {{url}}/{{model}} HTTP/1.1
+
+###
+# @name update
+# update one tag
+PUT {{url}}/{{model}}/{{record}} HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+  "title":"updated"
+}
+
+###
+# @name delete
+# delete one tag
+DELETE {{url}}/{{model}}/{{record}} HTTP/1.1

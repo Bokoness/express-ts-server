@@ -1,0 +1,45 @@
+@model = area
+@record = {{store.response.body._id}}
+
+# @name store
+POST {{url}}/{{model}} HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+  "title":"my area",
+  "info": "my area info"
+}
+
+###
+# @name index
+# fetch all area's areas
+GET {{url}}/{{model}}/
+###
+
+###
+# @name show
+## Show one record
+GET {{url}}/{{model}}/{{record}} HTTP/1.1
+
+###
+# @name index
+## Fetch all records
+GET {{url}}/{{model}} HTTP/1.1
+
+###
+# @name update
+# update one area
+PUT {{url}}/{{model}}/{{record}} HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+  "title":"updated"
+}
+
+###
+# @name delete
+# delete one area
+DELETE {{url}}/{{model}}/{{record}} HTTP/1.1
+
+
+
